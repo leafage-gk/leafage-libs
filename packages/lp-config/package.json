@@ -1,0 +1,19 @@
+{
+  "name": "@leafage-gk/lp-config",
+  "version": "0.0.0",
+  "description": "landing page config",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/leafage-gk/leafage-libs.git",
+    "directory": "packages/lp-config"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "author": "tnkgs <kento@kt-one.jp>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "prerender-spa-plugin": "^3.4.0"
+  }
+}

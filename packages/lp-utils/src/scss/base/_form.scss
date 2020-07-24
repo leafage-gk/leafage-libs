@@ -1,0 +1,94 @@
+/*
+ * Reset default form styling for browser consistency
+ */
+textarea {
+  width: 100%;
+  resize: none;
+}
+
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+textarea,
+select {
+  max-width: 100%;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid grey;
+  border-radius: 0;
+  box-shadow: none;
+
+  &:focus {
+    outline: 0;
+    box-shadow: none;
+  }
+}
+
+[type='button'],
+[type='reset'],
+[type='submit'],
+button {
+  padding: 0.5rem;
+  line-height: 1;
+  cursor: pointer;
+  background: #ccc;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0;
+}
+
+input:disabled,
+input[readonly],
+select:disabled,
+textarea:disabled,
+textarea[readonly] {
+  cursor: default;
+}
+
+[type='checkbox'],
+[type='file'],
+[type='radio'] {
+  margin: 0 0 1rem;
+}
+
+[type='checkbox'],
+[type='radio'] {
+  display: inline-block;
+  margin-right: 5px;
+  vertical-align: baseline;
+}
+
+[type='checkbox'] + label,
+[type='radio'] + label {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+[type='file'] {
+  width: 100%;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  max-width: 100%;
+  margin-bottom: 0;
+}

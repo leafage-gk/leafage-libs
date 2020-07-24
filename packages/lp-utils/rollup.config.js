@@ -6,9 +6,10 @@ import vue from 'rollup-plugin-vue'
 export default {
   input: 'src/wrapper.js',
   output: {
-    name: 'LeafageHeader',
+    name: 'LpUtils',
     exports: 'named',
   },
+  external: ['vue', 'vue-head'],
   plugins: [
     commonjs(),
     vue({
@@ -17,6 +18,7 @@ export default {
     }),
     scss({
       output: 'dist/main.css',
+      outputStyle: 'compressed',
     }),
     buble(),
   ],

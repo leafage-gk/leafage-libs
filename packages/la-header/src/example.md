@@ -1,16 +1,16 @@
-LeafageHeader example:
+LaHeader example:
 
 ```vue
 <template>
   <div class="sample">
-    <leafage-header>Default Example Usage</leafage-header>
+    <la-header />
     <div class="contents">
       contents
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .sample {
   position: relative;
   height: 300px;
@@ -18,8 +18,12 @@ LeafageHeader example:
   background: #eee;
   overflow-y: scroll;
 }
+.la-header {
+  position: sticky;
+}
 .contents {
-  margin-top: 56px;
+  position: absolute;
+  top: 0;
   width: 100%;
   height: 600px;
 }

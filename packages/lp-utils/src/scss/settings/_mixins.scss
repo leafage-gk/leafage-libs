@@ -1,0 +1,82 @@
+// メディアクエリ
+
+// SP用
+@mixin breakpoint-sp {
+  @media screen and (max-width: $sp) {
+    @content;
+  }
+}
+
+// SP以外
+@mixin breakpoint-not-sp {
+  @media screen and (min-width: $sp) {
+    @content;
+  }
+}
+
+// SPとPCの中間
+@mixin breakpoint-tablet {
+  @media screen and (min-width: $sp) and (max-width: $tablet) {
+    @content;
+  }
+}
+
+// PC用
+@mixin breakpoint-pc {
+  @media screen and (min-width: $tablet) {
+    @content;
+  }
+}
+
+// PC以外
+@mixin breakpoint-not-pc {
+  @media screen and (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin elevation($color) {
+  box-shadow: 0 0 4px 2px $color;
+}
+
+$set-prefix: '', -moz-, -webkit-, -ms-, -o-;
+
+@mixin vender-prefix($name, $value...) {
+  @each $prefix in $set-prefix {
+    #{$prefix}#{$name}: $value;
+  }
+}
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function pc2tablet-size($size) {
+  $result: ();
+  @each $s in $size {
+    @if $s == auto {
+      $result: append($result, $s);
+    } @else {
+      $new-size: $s / $tablet * 100;
+      $strip: strip-units($new-size);
+      @if $strip == 0 {
+        $result: append($result, 0);
+      } @else {
+        $result: append($result, #{$strip}vw);
+      }
+    }
+  }
+  @return $result;
+}
+
+@mixin responsive($prop, $pc, $sp) {
+  @include breakpoint-pc {
+    #{$prop}: $pc;
+  }
+  @include breakpoint-not-pc {
+    #{$prop}: pc2tablet-size($pc);
+  }
+  @include breakpoint-sp {
+    #{$prop}: $sp;
+  }
+}

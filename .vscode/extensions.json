@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "benjaminadk.emojis4git",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.terminal",
+    "mrmlnc.vscode-scss",
+    "octref.vetur",
+    "stylelint.vscode-stylelint",
+    "syler.sass-indented"
+  ]
+}

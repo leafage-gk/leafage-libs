@@ -1,9 +1,9 @@
-import component from './LeafageHeader.vue'
+import component from './LaHeader.vue'
 
 export function install(Vue) {
   if (install.installed) return
   install.installed = true
-  Vue.component('LeafageHeader', component)
+  Vue.component('LaHeader', component)
 }
 
 const plugin = {
