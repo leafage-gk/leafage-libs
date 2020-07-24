@@ -1,6 +1,6 @@
 {
   "name": "@leafage-gk/lp-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "landing page config",
   "main": "index.js",
   "repository": {

@@ -1,6 +1,6 @@
 {
   "name": "@leafage-gk/lp-utils",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "landing page library",
   "main": "dist/lp-utils.umd.js",
   "module": "dist/lp-utils.esm.js",
