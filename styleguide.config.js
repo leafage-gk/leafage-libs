@@ -1,10 +1,8 @@
-const path = require('path')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   title: 'Leafageライブラリ',
   pagePerSection: true,
-  require: [path.join(__dirname, 'docs/global.requires.js')],
   sections: [
     {
       name: 'イントロダクション',
