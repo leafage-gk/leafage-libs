@@ -18,9 +18,10 @@ export default [
   {
     input: 'src/wrapper.js',
     output: {
+      name: 'LaHeader',
+      exports: 'named',
       format: 'cjs',
       file: 'dist/la-header.ssr.js',
-      exports: 'auto',
     },
     external: ['vue'],
     plugins: [
