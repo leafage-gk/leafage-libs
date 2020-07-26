@@ -2,8 +2,10 @@
   "name": "@leafage-gk/lp-utils",
   "version": "0.1.0",
   "description": "landing page library",
-  "main": "dist/lp-utils.umd.js",
+  "main": "dist/lp-utils.ssr.js",
   "module": "dist/lp-utils.esm.js",
+  "browser": "dist/lp-utils.js",
+  "unpkg": "dist/lp-utils.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/leafage-gk/leafage-libs.git",
@@ -16,13 +18,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prepublish": "yarn build",
-    "build": "yarn build:css & yarn build:umd & yarn build:es",
-    "build:css": "node-sass --output-style compressed src/scss/base.scss dist/base.css",
-    "build:umd": "rollup --config rollup.config.js --format umd --file dist/lp-utils.umd.js",
-    "build:es": "rollup --config rollup.config.js --format es --file dist/lp-utils.esm.js"
-  },
-  "devDependencies": {
-    "node-sass": "^4.14.1"
+    "build": "rollup --config rollup.config.js"
   },
   "peerDependencies": {
     "vue": "^2.6.11",

@@ -4,14 +4,15 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const PuppeteerRenderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const env = process.env.NODE_ENV || 'development'
-const cmdDir = process.cwd()
 
 const setupConfig = (options) => {
   const routes = []
   const plugins = []
 
-  const staticDir = options.staticDir || path.resolve(cmdDir, 'dist')
-  const pagesDir = options.pagesDir || path.resolve(cmdDir, 'src', 'pages')
+  const rootDir = options.rootDir || process.cmd()
+
+  const distDir = path.resolve(rootDir, 'dist')
+  const pagesDir = path.resolve(rootDir, 'src', 'pages')
 
   let pages = {}
   if (!options.target || env === 'development') {
@@ -56,7 +57,7 @@ const setupConfig = (options) => {
   if (env === 'production') {
     plugins.push(
       new PrerenderSPAPlugin({
-        staticDir,
+        staticDir: distDir,
         routes,
         renderer: new PuppeteerRenderer({
           headless: true,
@@ -64,7 +65,7 @@ const setupConfig = (options) => {
         }),
         postProcess(context) {
           if (context.route.endsWith('.html')) {
-            context.outputPath = path.join(staticDir, context.route)
+            context.outputPath = path.join(distDir, context.route)
             context.html = context.html
               .replace(/<script (.*?)>/g, '<script $1 defer>')
               .replace('id="app"', 'id="app" data-server-rendered="true"')
@@ -91,7 +92,7 @@ const setupConfig = (options) => {
     configureWebpack: {
       resolve: {
         alias: {
-          '@': path.resolve(__dirname, '..'),
+          '@': path.resolve(rootDir, 'src'),
         },
       },
       plugins,

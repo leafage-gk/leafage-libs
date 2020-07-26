@@ -2,11 +2,10 @@
   "name": "@leafage-gk/la-header",
   "version": "0.1.0",
   "description": "corporate header component",
-  "main": "dist/la-header.umd.js",
+  "main": "dist/la-header.ssr.js",
   "module": "dist/la-header.esm.js",
-  "browser": {
-    "./sfc": "./src/LaHeader.vue"
-  },
+  "browser": "dist/la-header.js",
+  "unpkg": "dist/la-header.js",
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com/leafage-gk/leafage-libs.git",
@@ -19,9 +18,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "prepublish": "yarn build",
-    "build": "yarn build:umd & yarn build:es",
-    "build:umd": "rollup --config rollup.config.js --format umd --file dist/la-header.umd.js",
-    "build:es": "rollup --config rollup.config.js --format es --file dist/la-header.esm.js"
+    "build": "rollup --config rollup.config.js"
   },
   "peerDependencies": {
     "vue": "^2.6.11"
