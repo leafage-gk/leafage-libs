@@ -1,6 +1,6 @@
 {
   "name": "@leafage-gk/la-header",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "corporate header component",
   "main": "dist/la-header.ssr.js",
   "module": "dist/la-header.esm.js",
