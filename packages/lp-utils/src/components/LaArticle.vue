@@ -1,14 +1,3 @@
-<docs>
-LaArticle example:
-
-```vue
-  <la-article>
-    <span>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</span>
-    <span>bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb</span>
-    <span>cccccccccccccccccccccccccccccccccccccccccccccc</span>
-  </la-article>
-```
-</docs>
 <template>
   <p class="la-article">
     <slot />

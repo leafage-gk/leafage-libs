@@ -35,7 +35,6 @@ import LaHeaderSpacer from './components/LaHeaderSpacer.vue'
  * 共通ヘッダー
  *
  * @todo ripple effect
- * @example ./example.md
  */
 export default Vue.extend({
   name: 'LaHeader',
@@ -51,14 +50,14 @@ export default Vue.extend({
     }
   },
   mounted() {
-    this.$root.$el.addEventListener('scroll', this.onScroll)
+    window.addEventListener('scroll', this.onScroll)
   },
   beforeDestroy() {
-    this.$root.$el.removeEventListener('scroll', this.onScroll)
+    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
     onScroll() {
-      this.top = this.$root.$el.scrollTop === 0
+      this.top = window.scrollY === 0
     },
   },
 })
@@ -71,6 +70,7 @@ export default Vue.extend({
   position: fixed;
   top: 0;
   left: 0;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: flex-start;

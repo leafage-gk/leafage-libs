@@ -35,3 +35,5 @@ if (GlobalVue) {
 }
 
 export { createPage, scroll }
+
+export default plugin

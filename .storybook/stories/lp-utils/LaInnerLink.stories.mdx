@@ -1,0 +1,29 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import LaInnerLink from '@leafage-gk/lp-utils/src/components/LaInnerLink.vue'
+
+<Meta title="lp-utils/components/LaInnerLink" component={LaInnerLink} />
+
+# LaInnerLink
+
+hello world.
+
+<Story name="preview" parameters={{ docs: { disable: true }}}>
+  {{
+    template: `<div>
+      <div id="hoge">
+        hoge
+      </div>
+      <la-inner-link target="#piyo" style="display:block; background: #CCC; text-align: center; width: 200px; padding: 10px;">
+        link to piyo
+      </la-inner-link>
+      <div style="width: 100%; height: 900px;"></div>
+      <div id="piyo">
+        piyo
+      </div>
+      <la-inner-link target="#hoge" style="display:block; background: #CCC; text-align: center; width: 200px; padding: 10px;">
+        link to hoge
+      </la-inner-link>
+    </div>`,
+    components: {LaInnerLink},
+  }}
+</Story>

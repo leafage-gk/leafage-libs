@@ -4,7 +4,6 @@
   "description": "corporate header component",
   "main": "dist/la-header.ssr.js",
   "module": "dist/la-header.esm.js",
-  "browser": "dist/la-header.js",
   "unpkg": "dist/la-header.js",
   "repository": {
     "type": "git",

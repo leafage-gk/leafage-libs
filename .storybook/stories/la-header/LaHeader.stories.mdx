@@ -1,0 +1,20 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks'
+import LaHeader from '@leafage-gk/la-header/src/LaHeader.vue'
+
+<Meta title="la-header/LaHeader" component={LaHeader} />
+
+# LaHeader
+
+hello world.
+
+<Story name="preview" parameters={{ docs: { disable: true }}}>
+  {{
+    template: `<div style="width:100%; height: 1200px;">
+      <la-header />
+      <div>
+        content
+      </div>
+    </div>`,
+    components: {LaHeader},
+  }}
+</Story>

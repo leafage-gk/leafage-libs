@@ -1,22 +1,3 @@
-<docs>
-LaInnerLink example:
-
-```vue
-  <la-inner-link target="#piyo">
-    go piyo
-  </la-inner-link>
-  <div id="hoge">
-    hoge
-  </div>
-  <div style="width: 100%; height: 900px;"></div>
-  <la-inner-link target="#hoge">
-    go hoge
-  </la-inner-link>
-  <div id="piyo">
-    piyo
-  </div>
-```
-</docs>
 <template>
   <a class="la-inner-link" @click.prevent="handleClick">
     <slot />

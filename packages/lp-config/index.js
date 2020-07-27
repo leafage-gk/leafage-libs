@@ -9,7 +9,7 @@ const setupConfig = (options) => {
   const routes = []
   const plugins = []
 
-  const rootDir = options.rootDir || process.cmd()
+  const rootDir = options.rootDir || process.cwd()
 
   const distDir = path.resolve(rootDir, 'dist')
   const pagesDir = path.resolve(rootDir, 'src', 'pages')
@@ -100,7 +100,7 @@ const setupConfig = (options) => {
     css: {
       loaderOptions: {
         scss: {
-          prependData: '@import "@/scss/settings.scss";',
+          additionalData: '@import "@/scss/settings.scss";',
         },
         css: {
           sourceMap: process.env.NODE_ENV !== 'production',

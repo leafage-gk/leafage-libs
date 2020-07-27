@@ -4,7 +4,6 @@
   "description": "landing page library",
   "main": "dist/lp-utils.ssr.js",
   "module": "dist/lp-utils.esm.js",
-  "browser": "dist/lp-utils.js",
   "unpkg": "dist/lp-utils.js",
   "repository": {
     "type": "git",

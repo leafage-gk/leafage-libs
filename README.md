@@ -6,8 +6,8 @@
 yarn install
 ```
 
-## styleguidist
+## storybook
 
 ```bash
-yarn styleguidist
+yarn storybook
 ```
