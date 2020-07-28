@@ -35,14 +35,11 @@ export default Vue.extend({
 .la-container {
   position: relative;
   width: 100%;
-  > img {
-    width: 100%;
-  }
   &__content {
     position: relative;
     max-width: $tablet;
     margin: 0 auto;
-    @include responsive(padding, 0 $padding, 0);
+    @include responsive(padding, 0 $padding, 0 3vw);
     &.padless {
       padding: 0;
     }

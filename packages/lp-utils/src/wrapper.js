@@ -1,13 +1,23 @@
+import './scss/base.scss'
+
 import LaArticle from './components/LaArticle.vue'
+import LaBtn from './components/LaBtn.vue'
 import LaContainer from './components/LaContainer.vue'
+import LaForm from './components/LaForm.vue'
+import LaFormGroup from './components/LaFormGroup.vue'
 import LaInnerLink from './components/LaInnerLink.vue'
+import LaTopScroller from './components/LaTopScroller.vue'
 import createPage from './page'
 import scroll from './scroll'
 
 export const components = {
   LaArticle,
+  LaBtn,
   LaContainer,
+  LaForm,
+  LaFormGroup,
   LaInnerLink,
+  LaTopScroller,
 }
 
 export function install(Vue) {

@@ -18,9 +18,10 @@ export default [
   {
     input: 'src/wrapper.js',
     output: {
+      name: 'LpUtils',
+      exports: 'named',
       format: 'cjs',
       file: 'dist/lp-utils.ssr.js',
-      exports: 'auto',
     },
     external: ['vue'],
     plugins: [

@@ -1,0 +1,75 @@
+import '@leafage-gk/lp-utils/src/scss/base.scss'
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks'
+import LaBtn from '@leafage-gk/lp-utils/src/components/LaBtn.vue'
+import LaContainer from '@leafage-gk/lp-utils/src/components/LaContainer.vue'
+import LaForm from '@leafage-gk/lp-utils/src/components/LaForm.vue'
+import LaFormGroup from '@leafage-gk/lp-utils/src/components/LaFormGroup.vue'
+
+<Meta title="lp-utils/components/LaForm" component={LaForm} />
+
+# LaForm
+
+hello world.
+
+<Preview>
+  <Story name="sample">
+    {{
+      template: `
+      <la-container shrink style="background: #3f51b5; padding-top: 32px; padding-bottom: 32px;">
+        <la-form>
+          <la-form-group>
+            <template #label>
+              <label for="name">お名前</label>
+            </template>
+            <template #input>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="例）山田 太郎"
+                required
+              />
+            </template>
+          </la-form-group>
+          <la-form-group>
+            <template #label>
+              <label for="email">メールアドレス</label>
+            </template>
+            <template #input>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="例）info@yamada.jp"
+                required
+              />
+            </template>
+          </la-form-group>
+          <la-form-group>
+            <template #label>
+              <label for="type">タイプ</label>
+            </template>
+            <template #input>
+              <select name="type" id="type" required>
+                <option value="1">タイプ1</option>
+                <option value="1">タイプ2</option>
+                <option value="1">タイプ3</option>
+              </select>
+            </template>
+          </la-form-group>
+          <template #actions>
+            <la-btn type="submit" outlined>
+              確認画面へ
+            </la-btn>
+          </template>
+        </la-form>
+      </la-container>`,
+      components: {
+        LaBtn,
+        LaContainer,
+        LaForm,
+        LaFormGroup,
+      },
+    }}
+  </Story>
+</Preview>

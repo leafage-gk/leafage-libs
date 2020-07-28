@@ -1,6 +1,5 @@
-import { addDecorator, addParameters } from '@storybook/vue'
+import addon from '@storybook/addons'
 import { action } from '@storybook/addon-actions'
-import { withKnobs } from '@storybook/addon-knobs'
 import Vue from 'vue'
 
 Vue.component('RouterLink', {
@@ -13,10 +12,6 @@ Vue.component('RouterLink', {
   template: '<a href="#" @click.prevent="log()"><slot /></a>',
 })
 
-addDecorator(withKnobs)
-
-addParameters({
-  options: {
-    showRoots: true,
-  },
+addon.setConfig({
+  showRoots: true,
 })
