@@ -1,26 +1,7 @@
 import Vue from 'vue'
 
-const createApp = (options) =>
-  Vue.extend({
-    name: 'Root',
-    render(h) {
-      return h(
-        'div',
-        {
-          attrs: {
-            id: 'app',
-          },
-        },
-        options.sections.map((c) => h(c)),
-      )
-    },
-    head: options.head,
-  })
-
-const createPage = (options) => {
+const createPage = (App) => {
   Vue.config.productionTip = false
-
-  const App = createApp(options)
 
   new Vue({
     data() {

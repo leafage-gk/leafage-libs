@@ -18,17 +18,12 @@ const setupConfig = (options) => {
   if (!options.target || env === 'development') {
     pages = fs
       .readdirSync(pagesDir)
-      .filter(
-        (file) =>
-          fs.statSync(path.join(pagesDir, file)).isFile() &&
-          /.*\.js$/.test(file),
-      )
-      .map((file) => path.basename(file, '.js'))
+      .filter((file) => fs.statSync(path.join(pagesDir, file)).isDirectory())
       .reduce((p, c) => {
         routes.push(`/${c}.html`)
         return Object.assign(p, {
           [c]: {
-            entry: `src/pages/${c}.js`,
+            entry: `src/pages/${c}/index.js`,
             template: 'src/template.html',
             filename: `${c}.html`,
             title: options.title,
@@ -39,14 +34,14 @@ const setupConfig = (options) => {
 
   if (env === 'development') {
     pages.index = {
-      entry: 'src/main.js',
+      entry: 'src/pages/main/index.js',
       template: 'src/template.html',
       filename: 'index.html',
       title: options.title,
     }
   } else if (options.target) {
     pages.index = {
-      entry: `src/pages/${options.target}.js`,
+      entry: `src/pages/${options.target}/index.js`,
       template: 'src/template.html',
       filename: 'index.html',
       title: options.title,

@@ -8,8 +8,14 @@
     @scroll="onScroll"
   >
     <la-header-logo href="https://leafage.co.jp/" />
+    <la-header-caption v-if="caption">
+      {{ caption }}
+    </la-header-caption>
     <la-header-spacer />
     <la-header-menu>
+      <la-header-btn href="https://leafage.co.jp/services">
+        サービス
+      </la-header-btn>
       <la-header-btn href="https://leafage.co.jp/company">
         会社概要
       </la-header-btn>
@@ -27,6 +33,7 @@
 import Vue from 'vue'
 
 import LaHeaderBtn from './components/LaHeaderBtn.vue'
+import LaHeaderCaption from './components/LaHeaderCaption.vue'
 import LaHeaderLogo from './components/LaHeaderLogo.vue'
 import LaHeaderMenu from './components/LaHeaderMenu.vue'
 import LaHeaderSpacer from './components/LaHeaderSpacer.vue'
@@ -38,8 +45,12 @@ import LaHeaderSpacer from './components/LaHeaderSpacer.vue'
  */
 export default Vue.extend({
   name: 'LaHeader',
+  props: {
+    caption: String,
+  },
   components: {
     LaHeaderBtn,
+    LaHeaderCaption,
     LaHeaderLogo,
     LaHeaderMenu,
     LaHeaderSpacer,
@@ -87,8 +98,8 @@ export default Vue.extend({
     box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2),
       0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
   }
-  + * {
-    margin-top: $header-height;
-  }
+  // + * {
+  //   margin-top: $header-height;
+  // }
 }
 </style>
