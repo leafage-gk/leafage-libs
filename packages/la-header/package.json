@@ -16,7 +16,8 @@
   "author": "tnkgs <kento@kt-one.jp>",
   "license": "UNLICENSED",
   "scripts": {
-    "prepublish": "yarn build",
+    "prepublish": "yarn clean && yarn build",
+    "clean": "rimraf ./dist",
     "build": "rollup --config rollup.config.js"
   },
   "peerDependencies": {

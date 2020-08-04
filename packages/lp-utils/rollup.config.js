@@ -1,7 +1,7 @@
 import alias from '@rollup/plugin-alias'
 import fs from 'fs'
 import path from 'path'
-import scss from 'rollup-plugin-scss'
+import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import vue from 'rollup-plugin-vue'
 import svg from 'rollup-plugin-vue-inline-svg'
@@ -19,7 +19,14 @@ export default [
       file: 'dist/lp-utils.esm.js',
     },
     external: ['vue'],
-    plugins: [svg(), vue({ css: false }), scss({ output: false })],
+    plugins: [
+      svg(),
+      vue({ css: false }),
+      postcss({
+        extract: false,
+        use: ['sass'],
+      }),
+    ],
   },
   // SSR build.
   {
@@ -34,7 +41,10 @@ export default [
     plugins: [
       svg(),
       vue({ css: false, template: { optimizeSSR: true } }),
-      scss({ output: false }),
+      postcss({
+        extract: false,
+        use: ['sass'],
+      }),
     ],
   },
   // Browser build.
@@ -55,9 +65,10 @@ export default [
       vue({
         css: false,
       }),
-      scss({
-        output: 'dist/lp-utils.css',
-        outputStyle: 'compressed',
+      postcss({
+        extract: path.resolve('./dist/lp-utils.css'),
+        use: ['sass'],
+        minimize: true,
       }),
       terser(),
     ],
@@ -81,8 +92,9 @@ export default [
   {
     input: 'src/scss/base.scss',
     plugins: [
-      scss({
-        output: `lib/css/base.css`,
+      postcss({
+        extract: path.resolve('./lib/css/base.css'),
+        use: ['sass'],
       }),
     ],
   },
@@ -107,8 +119,11 @@ export default [
       }),
       svg(),
       vue({ css: false }),
-      scss({
-        output: `lib/components/${file.replace('.vue', '.css')}`,
+      postcss({
+        extract: path.resolve(
+          `./lib/components/${file.replace('.vue', '.css')}`,
+        ),
+        use: ['sass'],
       }),
     ],
   })),

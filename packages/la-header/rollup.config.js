@@ -1,4 +1,5 @@
-import scss from 'rollup-plugin-scss'
+import path from 'path'
+import postcss from 'rollup-plugin-postcss'
 import { terser } from 'rollup-plugin-terser'
 import vue from 'rollup-plugin-vue'
 import svg from 'rollup-plugin-vue-inline-svg'
@@ -12,7 +13,14 @@ export default [
       file: 'dist/la-header.esm.js',
     },
     external: ['vue'],
-    plugins: [svg(), vue({ css: false }), scss({ output: false })],
+    plugins: [
+      svg(),
+      vue({ css: false }),
+      postcss({
+        extract: false,
+        use: ['sass'],
+      }),
+    ],
   },
   // SSR build.
   {
@@ -27,7 +35,10 @@ export default [
     plugins: [
       svg(),
       vue({ css: false, template: { optimizeSSR: true } }),
-      scss({ output: false }),
+      postcss({
+        extract: false,
+        use: ['sass'],
+      }),
     ],
   },
   // Browser build.
@@ -48,9 +59,10 @@ export default [
       vue({
         css: false,
       }),
-      scss({
-        output: 'dist/la-header.css',
-        outputStyle: 'compressed',
+      postcss({
+        extract: path.resolve('./dist/la-header.css'),
+        use: ['sass'],
+        minimize: true,
       }),
       terser(),
     ],
