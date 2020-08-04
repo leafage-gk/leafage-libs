@@ -32,6 +32,7 @@ export default Vue.extend({
 .la-layout {
   position: absolute;
   display: flex;
+  width: 100%;
 
   &__align-start {
     top: 0;
@@ -55,7 +56,6 @@ export default Vue.extend({
 
   &__justify-center {
     justify-content: center;
-    width: 100%;
   }
 
   &__justify-end {

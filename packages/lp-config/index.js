@@ -112,6 +112,7 @@ const setupConfig = (options) => {
       },
     },
     publicPath: './',
+    transpileDependencies: ['@leafage-gk/lp-utils', '@leafage-gk/la-header'],
   }
 
   if (env === 'development') {

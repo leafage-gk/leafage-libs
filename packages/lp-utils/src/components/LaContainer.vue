@@ -52,7 +52,7 @@ export default Vue.extend({
 <style lang="scss">
 @import '../scss/settings.scss';
 
-.la-container2 {
+.la-container {
   position: relative;
   width: 100%;
   &__content {
