@@ -1,6 +1,6 @@
 {
   "name": "@leafage-gk/lp-utils",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "landing page library",
   "main": "dist/lp-utils.ssr.js",
   "module": "dist/lp-utils.esm.js",
