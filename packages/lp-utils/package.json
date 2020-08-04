@@ -20,7 +20,9 @@
     "clean": "yarn clean:lib && yarn clean:dist",
     "clean:lib": "rimraf ./lib",
     "clean:dist": "rimraf ./dist",
-    "build": "rollup --config rollup.config.js"
+    "build": "yarn build:css && yarn build:rollup",
+    "build:rollup": "rollup --config rollup.config.js",
+    "build:css": "node-sass src/scss/base.scss lib/css/base.css"
   },
   "peerDependencies": {
     "vue": "^2.6.11",

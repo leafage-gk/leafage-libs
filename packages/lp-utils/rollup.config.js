@@ -89,15 +89,6 @@ export default [
     },
     external: ['vue'],
   },
-  {
-    input: 'src/scss/base.scss',
-    plugins: [
-      postcss({
-        extract: path.resolve('./lib/css/base.css'),
-        use: ['sass'],
-      }),
-    ],
-  },
   ...components.map((file) => ({
     input: `src/components/${file}`,
     output: {
