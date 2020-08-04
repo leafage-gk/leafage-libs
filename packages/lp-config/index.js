@@ -79,6 +79,15 @@ const setupConfig = (options) => {
         .use('url-loader')
         .loader('url-loader')
         .tap((options) => Object.assign(options, { limit: 1024 }))
+      config.module
+        .rule('vue')
+        .use('vue-loader')
+        .loader('vue-loader')
+        .tap((options) => {
+          options.transformAssetUrls = options.transformAssetUrls || {}
+          options.transformAssetUrls['la-img'] = 'src'
+          return options
+        })
       config.plugin('copy').tap(([options]) => {
         options[0].ignore = ['.gitkeep']
         return [options]

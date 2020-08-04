@@ -1,9 +1,29 @@
 <template>
-  <div class="la-container">
+  <div
+    :class="{
+      'la-container': true,
+      ...(contentClass & fluid
+        ? {
+            [contentClass]: true,
+          }
+        : {}),
+    }"
+  >
     <template v-if="fluid">
       <slot />
     </template>
-    <div v-else class="la-container__content" :class="{ shrink, padless }">
+    <div
+      v-else
+      :class="{
+        'la-container__content': true,
+        'la-container__shrink': shrink,
+        ...(contentClass
+          ? {
+              [contentClass]: true,
+            }
+          : {}),
+      }"
+    >
       <slot />
     </div>
   </div>
@@ -22,8 +42,8 @@ export default Vue.extend({
     shrink: {
       type: Boolean,
     },
-    padless: {
-      type: Boolean,
+    contentClass: {
+      type: String,
     },
   },
 })
@@ -32,20 +52,16 @@ export default Vue.extend({
 <style lang="scss">
 @import '../scss/settings.scss';
 
-.la-container {
+.la-container2 {
   position: relative;
   width: 100%;
   &__content {
     position: relative;
     max-width: $tablet;
     margin: 0 auto;
-    @include responsive(padding, 0 $padding, 0 3vw);
-    &.padless {
-      padding: 0;
-    }
-    &.shrink {
-      max-width: $shrink;
-    }
+  }
+  &__shrink {
+    max-width: $shrink;
   }
 }
 </style>

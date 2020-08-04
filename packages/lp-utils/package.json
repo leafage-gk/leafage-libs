@@ -16,11 +16,22 @@
   "author": "tnkgs <kento@kt-one.jp>",
   "license": "UNLICENSED",
   "scripts": {
-    "prepublish": "yarn build",
+    "prepublish": "yarn clean && yarn build",
+    "clean": "yarn clean:lib && yarn clean:dist",
+    "clean:lib": "rimraf ./lib",
+    "clean:dist": "rimraf ./dist",
     "build": "rollup --config rollup.config.js"
   },
   "peerDependencies": {
     "vue": "^2.6.11",
     "vue-head": "^2.2.0"
-  }
+  },
+  "files": [
+    "lib/",
+    "dist/",
+    "src/scss/settings.scss",
+    "src/scss/settings/",
+    "package.json",
+    "CHANGELOG.md"
+  ]
 }

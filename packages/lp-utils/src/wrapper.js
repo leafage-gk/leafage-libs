@@ -5,7 +5,10 @@ import LaBtn from './components/LaBtn.vue'
 import LaContainer from './components/LaContainer.vue'
 import LaForm from './components/LaForm.vue'
 import LaFormGroup from './components/LaFormGroup.vue'
+import LaImg from './components/LaImg.vue'
 import LaInnerLink from './components/LaInnerLink.vue'
+import LaLayout from './components/LaLayout.vue'
+import LaSimpleNav from './components/LaSimpleNav.vue'
 import LaTopScroller from './components/LaTopScroller.vue'
 import createPage from './page'
 import scroll from './scroll'
@@ -16,7 +19,10 @@ export const components = {
   LaContainer,
   LaForm,
   LaFormGroup,
+  LaImg,
   LaInnerLink,
+  LaLayout,
+  LaSimpleNav,
   LaTopScroller,
 }
 
